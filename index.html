@@ -136,7 +136,7 @@
   /* TEAL SECTION */
   .teal-section {
     background: var(--teal-dark);
-    padding: 4px 0 8px;
+    padding: 4px 0 0;
   }
   .item-row {
     display: flex;
@@ -374,7 +374,9 @@
       <p>Écrivez-moi directement sur WhatsApp, ou remplissez le formulaire ci-dessous.</p>
       <a class="btn" href="https://wa.me/33637473843" target="_blank" rel="noopener">Discuter sur WhatsApp</a>
 
-      <form class="contact-form" action="#" method="POST">
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" action="#">
+        <input type="hidden" name="form-name" value="contact">
+
         <label for="nom">Nom</label>
         <input type="text" id="nom" name="nom" required>
 
@@ -392,7 +394,7 @@
     </div>
 
     <footer>
-      <p>Le Goût de Vivre — Mohamed Belkoura, Psychanalyste. Mentions légales à compléter.</p>
+      <p>Le Goût de Vivre — Mohamed Belkoura, Psychanalyste, exerçant en nom propre. Immatriculation en cours de création. Hébergement : Netlify, Inc., 44 Montgomery Street, Suite 300, San Francisco, CA 94104, États-Unis. Contact : <a href="mailto:mohamed.belkoura@gmail.com">mohamed.belkoura@gmail.com</a></p>
     </footer>
 
   </div>
