@@ -506,9 +506,8 @@
       <p>Écrivez-moi directement sur WhatsApp, ou remplissez le formulaire ci-dessous.</p>
       <a class="btn" href="https://wa.me/33637473843" target="_blank" rel="noopener">Discuter sur WhatsApp</a>
 
-      <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true" action="/">
-        <input type="hidden" name="form-name" value="contact">
-        <input type="hidden" name="subject" value="Nouveau message — Le Goût de Vivre">
+      <form class="contact-form" id="contact-form" name="contact" method="POST" action="https://formspree.io/f/xvkgoonq">
+        <input type="hidden" name="_subject" value="Nouveau message — Le Goût de Vivre">
 
         <label for="nom">Nom</label>
         <input type="text" id="nom" name="nom" required>
@@ -561,10 +560,10 @@
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
       formStatus.className = 'form-status';
-      fetch('/', {
+      fetch(contactForm.action, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(contactForm)).toString()
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(contactForm)
       }).then(function (response) {
         if (!response.ok) throw new Error('bad status');
         contactForm.reset();
