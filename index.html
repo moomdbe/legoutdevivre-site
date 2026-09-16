@@ -487,10 +487,10 @@
 
   var contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    var status = contactForm.querySelector('.form-status');
+    var formStatus = contactForm.querySelector('.form-status');
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      status.className = 'form-status';
+      formStatus.className = 'form-status';
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -498,11 +498,11 @@
       }).then(function (response) {
         if (!response.ok) throw new Error('bad status');
         contactForm.reset();
-        status.textContent = 'Merci, votre message a bien été envoyé. Je vous répondrai rapidement.';
-        status.className = 'form-status success';
+        formStatus.textContent = 'Merci, votre message a bien été envoyé. Je vous répondrai rapidement.';
+        formStatus.className = 'form-status success';
       }).catch(function () {
-        status.textContent = "Une erreur est survenue. Vous pouvez réessayer ou m'écrire directement sur WhatsApp.";
-        status.className = 'form-status error';
+        formStatus.textContent = "Une erreur est survenue. Vous pouvez réessayer ou m'écrire directement sur WhatsApp.";
+        formStatus.className = 'form-status error';
       });
     });
   }
