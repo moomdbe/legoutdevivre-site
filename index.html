@@ -148,21 +148,25 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    margin-top: 8px;
     padding-bottom: 4px;
   }
   .scroll-cards::-webkit-scrollbar { display: none; }
+  .teal-section .scroll-cards {
+    margin-top: 28px;
+    padding-bottom: 26px;
+  }
   .item-row {
     display: flex;
     flex: 0 0 100%;
     gap: 14px;
     align-items: flex-start;
     scroll-snap-align: start;
-    background: rgba(255,255,255,0.07);
+  }
+  .item-row.light {
+    background: rgba(44,95,111,0.06);
     border-radius: 16px;
     padding: 24px 20px 26px;
   }
-  .item-row.light { background: rgba(44,95,111,0.06); }
   .item-row svg.icon { flex-shrink: 0; margin-top: 4px; }
   .item-row h3 {
     font-size: 19px;
@@ -175,6 +179,7 @@
     color: var(--cream-text);
     margin-top: 12px;
   }
+  .teal-section .item-row p { margin-top: 18px; }
   .item-row.light p { color: var(--ink-soft); }
 
   .scroll-dots {
