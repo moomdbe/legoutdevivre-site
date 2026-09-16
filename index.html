@@ -171,7 +171,7 @@
     border-radius: 16px;
     padding: 24px 20px 26px;
   }
-  .item-row svg.icon { flex-shrink: 0; margin-top: 4px; }
+  .item-row svg.icon { flex-shrink: 0; margin-top: 0; }
   .item-row h3 {
     font-size: 21px;
     color: var(--white-text);
@@ -253,6 +253,10 @@
     font-size: 15px;
     color: var(--ink-soft);
     margin-top: 14px;
+  }
+  .tarif-note .note-star {
+    display: inline-block;
+    vertical-align: -0.08em;
   }
 
   /* CONTACT */
@@ -354,6 +358,7 @@
 
     /* Keep the scrollable sections, price and contact large — smaller type, bigger padding, same line breaks */
     .item-row h3 { font-size: 50px; }
+    .item-row svg.icon { margin-top: 16px; }
     .item-row p { font-size: 24px; max-width: 780px; }
     .teal-section .item-row {
       background: rgba(255,255,255,0.08);
@@ -493,7 +498,7 @@
           <div class="price">25€</div>
         </div>
       </div>
-      <p class="tarif-note">✦ Grande difficulté financière &rarr; gratuité étudiée au cas par cas</p>
+      <p class="tarif-note"><span class="note-star">✦</span> Grande difficulté financière &rarr; gratuité étudiée au cas par cas</p>
     </div>
 
     <div class="contact" id="contact">
