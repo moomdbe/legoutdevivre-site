@@ -295,6 +295,13 @@
   form.contact-form button {
     margin-top: 20px;
   }
+  .form-status {
+    display: none;
+    font-size: 13.5px;
+    margin-top: 14px;
+  }
+  .form-status.success { display: block; color: var(--teal-dark); }
+  .form-status.error { display: block; color: #B3403C; }
 
   footer {
     padding: 40px 0 32px;
@@ -431,8 +438,9 @@
       <p>Écrivez-moi directement sur WhatsApp, ou remplissez le formulaire ci-dessous.</p>
       <a class="btn" href="https://wa.me/33637473843" target="_blank" rel="noopener">Discuter sur WhatsApp</a>
 
-      <form class="contact-form" name="contact" method="POST" data-netlify="true" action="#">
+      <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true" action="/">
         <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="subject" value="Nouveau message — Le Goût de Vivre">
 
         <label for="nom">Nom</label>
         <input type="text" id="nom" name="nom" required>
@@ -445,6 +453,8 @@
 
         <label for="message">Message (facultatif)</label>
         <textarea id="message" name="message"></textarea>
+
+        <p class="form-status" role="status"></p>
 
         <button type="submit" class="btn">Envoyer</button>
       </form>
@@ -475,6 +485,28 @@
     }
     container.addEventListener('scroll', update, { passive: true });
   });
+
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    var formStatus = contactForm.querySelector('.form-status');
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      formStatus.className = 'form-status';
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(contactForm)).toString()
+      }).then(function (response) {
+        if (!response.ok) throw new Error('bad status');
+        contactForm.reset();
+        formStatus.textContent = 'Merci, votre message a bien été envoyé. Je vous répondrai rapidement.';
+        formStatus.className = 'form-status success';
+      }).catch(function () {
+        formStatus.textContent = "Une erreur est survenue. Vous pouvez réessayer ou m'écrire directement sur WhatsApp.";
+        formStatus.className = 'form-status error';
+      });
+    });
+  }
 </script>
 </body>
 </html>
