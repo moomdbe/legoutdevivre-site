@@ -140,13 +140,33 @@
     background: var(--teal-dark);
     padding: 4px 0 0;
   }
+  .scroll-cards {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 4px;
+  }
+  .scroll-cards::-webkit-scrollbar { display: none; }
+  .teal-section .scroll-cards {
+    margin-top: 28px;
+    padding-bottom: 26px;
+  }
   .item-row {
     display: flex;
-    gap: 16px;
+    flex: 0 0 100%;
+    gap: 14px;
     align-items: flex-start;
-    margin-top: 34px;
+    scroll-snap-align: start;
   }
-  .item-row:first-child { margin-top: 8px; }
+  .item-row.light {
+    background: rgba(44,95,111,0.06);
+    border-radius: 16px;
+    padding: 24px 20px 26px;
+  }
   .item-row svg.icon { flex-shrink: 0; margin-top: 4px; }
   .item-row h3 {
     font-size: 19px;
@@ -157,17 +177,37 @@
     font-size: 15px;
     line-height: 1.7;
     color: var(--cream-text);
-    margin-top: 8px;
-    max-width: 480px;
+    margin-top: 12px;
   }
+  .teal-section .item-row p { margin-top: 18px; }
   .item-row.light p { color: var(--ink-soft); }
+
+  .scroll-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .scroll-dots .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .scroll-dots .dot.active {
+    background: var(--white-text);
+    transform: scale(1.3);
+  }
+  .scroll-dots.light .dot { background: rgba(35,58,63,0.25); }
+  .scroll-dots.light .dot.active { background: var(--teal-dark); }
 
   /* CREAM SECTION */
   .cream-section {
     background: var(--cream);
     padding: 4px 0 0;
   }
-  .cream-section .item-row:first-child {
+  .cream-section .scroll-cards {
     margin-top: 28px;
   }
 
@@ -288,70 +328,84 @@
       <p>J'accompagne celles et ceux qui, sans traverser de crise majeure, ressentent le besoin de prendre du recul sur leurs choix — professionnels, relationnels, existentiels.</p>
     </div>
 
-    <svg class="wave" width="100%" height="48" viewBox="0 0 640 48" preserveAspectRatio="none">
-      <path d="M0 30 C 80 6, 160 6, 240 24 C 320 42, 400 42, 480 24 C 560 6, 620 6, 640 20 L640 48 L0 48 Z" fill="#2C5F6F"/>
-    </svg>
   </div>
+  <svg class="wave" width="100%" height="48" viewBox="0 0 640 48" preserveAspectRatio="none">
+    <path d="M0 30 C 80 6, 160 6, 240 24 C 320 42, 400 42, 480 24 C 560 6, 620 6, 640 20 L640 48 L0 48 Z" fill="#2C5F6F"/>
+  </svg>
 </div>
 
 <div class="teal-section">
   <div class="wrap">
 
-    <div class="item-row">
-      <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M11 2 L14 9 L20 11 L14 13 L11 20 L8 13 L2 11 L8 9 Z" fill="none" stroke="#8FB8BE" stroke-width="1.4" stroke-linejoin="round"/></svg>
-      <div>
-        <h3>Mon approche</h3>
-        <p>Mon approche puise dans la psychanalyse et dans la philosophie, pour interroger nos blocages ordinaires : ces &laquo; névroses du quotidien &raquo; qui n'ont rien de pathologique, mais qui pèsent sur nos choix de vie et nos relations.</p>
+    <div class="scroll-cards">
+      <div class="item-row">
+        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M11 2 L14 9 L20 11 L14 13 L11 20 L8 13 L2 11 L8 9 Z" fill="none" stroke="#8FB8BE" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        <div>
+          <h3>Mon approche</h3>
+          <p>Mon approche puise dans la psychanalyse et dans la philosophie, pour interroger nos blocages ordinaires : ces &laquo; névroses du quotidien &raquo; qui n'ont rien de pathologique, mais qui pèsent sur nos choix de vie et nos relations.</p>
+        </div>
+      </div>
+
+      <div class="item-row">
+        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M3 18 C 6 6, 16 6, 19 18" fill="none" stroke="#8FB8BE" stroke-width="1.4"/><circle cx="11" cy="6" r="2" fill="#8FB8BE"/></svg>
+        <div>
+          <h3>Ma philosophie</h3>
+          <p>Je crois profondément à la légèreté, au jeu, au rire comme chemins vers soi — autant qu'à la profondeur de l'introspection. Se défaire des couches de sérieux, pour retrouver un goût de vivre plus créatif.</p>
+        </div>
+      </div>
+
+      <div class="item-row">
+        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><rect x="3" y="6" width="16" height="12" rx="1.5" fill="none" stroke="#8FB8BE" stroke-width="1.4"/><path d="M3 9 L19 9" stroke="#8FB8BE" stroke-width="1.4"/></svg>
+        <div>
+          <h3>Ma formation</h3>
+          <p>Master en psychanalyse à l'université de Montpellier et formation spécialisée à l'École Pratique des Hautes Études en Psychopathologie.</p>
+        </div>
       </div>
     </div>
-
-    <div class="item-row">
-      <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M3 18 C 6 6, 16 6, 19 18" fill="none" stroke="#8FB8BE" stroke-width="1.4"/><circle cx="11" cy="6" r="2" fill="#8FB8BE"/></svg>
-      <div>
-        <h3>Ma philosophie</h3>
-        <p>Je crois profondément à la légèreté, au jeu, au rire comme chemins vers soi — autant qu'à la profondeur de l'introspection. Se défaire des couches de sérieux, pour retrouver un goût de vivre plus créatif.</p>
-      </div>
+    <div class="scroll-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
 
-    <div class="item-row">
-      <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><rect x="3" y="6" width="16" height="12" rx="1.5" fill="none" stroke="#8FB8BE" stroke-width="1.4"/><path d="M3 9 L19 9" stroke="#8FB8BE" stroke-width="1.4"/></svg>
-      <div>
-        <h3>Ma formation</h3>
-        <p>Master en psychanalyse à l'université de Montpellier et formation spécialisée à l'École Pratique des Hautes Études en Psychopathologie.</p>
-      </div>
-    </div>
-
-    <svg class="wave wave-up" width="100%" height="44" viewBox="0 0 640 44" preserveAspectRatio="none">
-      <path d="M0 16 C 80 38, 160 38, 240 22 C 320 6, 400 6, 480 22 C 560 38, 620 38, 640 24 L640 44 L0 44 Z" fill="#F6F3EA"/>
-    </svg>
   </div>
+  <svg class="wave wave-up" width="100%" height="44" viewBox="0 0 640 44" preserveAspectRatio="none">
+    <path d="M0 16 C 80 38, 160 38, 240 22 C 320 6, 400 6, 480 22 C 560 38, 620 38, 640 24 L640 44 L0 44 Z" fill="#F6F3EA"/>
+  </svg>
 </div>
 
 <div class="cream-section">
   <div class="wrap">
 
-    <div class="item-row light">
-      <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M4 18 L4 8 L11 3 L18 8 L18 18 Z" fill="none" stroke="#2C5F6F" stroke-width="1.4" stroke-linejoin="round"/></svg>
-      <div>
-        <h3>L'accompagnement</h3>
-        <p>Vous n'avez pas besoin d'aller mal pour venir consulter. Les séances ont lieu par téléphone, en français, 50 minutes chacune. Le rythme se décide ensemble.</p>
+    <div class="scroll-cards">
+      <div class="item-row light">
+        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M4 18 L4 8 L11 3 L18 8 L18 18 Z" fill="none" stroke="#2C5F6F" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        <div>
+          <h3>L'accompagnement</h3>
+          <p>Vous n'avez pas besoin d'aller mal pour venir consulter. Les séances ont lieu par téléphone, en français, 50 minutes chacune. Le rythme se décide ensemble.</p>
+        </div>
+      </div>
+
+      <div class="item-row light">
+        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><circle cx="11" cy="11" r="9.5" fill="none" stroke="#2C5F6F" stroke-width="1.4"/><path d="M7 11 L10 14 L15 8" fill="none" stroke="#2C5F6F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <h3>Pourquoi consulter</h3>
+          <p>Clarifier une décision de vie, sortir d'une routine qui pèse, mieux comprendre une relation, ou simplement vous retrouver.</p>
+        </div>
+      </div>
+
+      <div class="item-row light">
+        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M11 2 L19 6 L19 12 C19 17 15.5 19.5 11 20 C6.5 19.5 3 17 3 12 L3 6 Z" fill="none" stroke="#2C5F6F" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        <div>
+          <h3>Créneaux solidaires</h3>
+          <p>Un nombre limité de créneaux à tarif réduit chaque semaine, pour que l'accompagnement reste accessible à tous.</p>
+        </div>
       </div>
     </div>
-
-    <div class="item-row light">
-      <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><circle cx="11" cy="11" r="9.5" fill="none" stroke="#2C5F6F" stroke-width="1.4"/><path d="M7 11 L10 14 L15 8" fill="none" stroke="#2C5F6F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <div>
-        <h3>Pourquoi consulter</h3>
-        <p>Clarifier une décision de vie, sortir d'une routine qui pèse, mieux comprendre une relation, ou simplement vous retrouver.</p>
-      </div>
-    </div>
-
-    <div class="item-row light">
-      <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M11 2 L19 6 L19 12 C19 17 15.5 19.5 11 20 C6.5 19.5 3 17 3 12 L3 6 Z" fill="none" stroke="#2C5F6F" stroke-width="1.4" stroke-linejoin="round"/></svg>
-      <div>
-        <h3>Créneaux solidaires</h3>
-        <p>Un nombre limité de créneaux à tarif réduit chaque semaine, pour que l'accompagnement reste accessible à tous.</p>
-      </div>
+    <div class="scroll-dots light">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
 
     <div class="tarifs">
@@ -367,7 +421,6 @@
         </div>
       </div>
       <p class="tarif-note">Grande difficulté financière &rarr; gratuité étudiée au cas par cas</p>
-      <p class="tarif-note">Paiement par virement.</p>
     </div>
 
     <div class="contact" id="contact">
@@ -395,11 +448,30 @@
     </div>
 
     <footer>
-      <p>Le Goût de Vivre — Mohamed Belkoura, Psychopraticien, exerçant en nom propre. Immatriculation en cours de création. Hébergement : Netlify, Inc., 44 Montgomery Street, Suite 300, San Francisco, CA 94104, États-Unis. Contact : <a href="mailto:mohamed.belkoura@gmail.com">mohamed.belkoura@gmail.com</a></p>
+      <p>Le Goût de Vivre — Mohamed Belkoura, psychopraticien, exerçant en nom propre. Immatriculation en cours de création. Hébergement : Netlify, Inc., 44 Montgomery Street, Suite 300, San Francisco, CA 94104, États-Unis. Contact : <a href="mailto:mohamed.belkoura@gmail.com">mohamed.belkoura@gmail.com</a></p>
     </footer>
 
   </div>
 </div>
 
+<script>
+  document.querySelectorAll('.scroll-cards').forEach(function (container) {
+    var dots = container.nextElementSibling;
+    if (!dots || !dots.classList.contains('scroll-dots')) return;
+    var dotEls = dots.querySelectorAll('.dot');
+    var cards = container.querySelectorAll('.item-row');
+    function update() {
+      var scrollLeft = container.scrollLeft;
+      var index = 0;
+      var min = Infinity;
+      cards.forEach(function (card, i) {
+        var diff = Math.abs(card.offsetLeft - container.offsetLeft - scrollLeft);
+        if (diff < min) { min = diff; index = i; }
+      });
+      dotEls.forEach(function (d, i) { d.classList.toggle('active', i === index); });
+    }
+    container.addEventListener('scroll', update, { passive: true });
+  });
+</script>
 </body>
 </html>
