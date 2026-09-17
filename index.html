@@ -86,7 +86,7 @@
     max-width: 480px;
   }
   .hero .accroche {
-    font-size: 18px;
+    font-size: 17.5px;
     line-height: 1.6;
     color: var(--ink-soft);
     margin-top: 18px;
@@ -98,15 +98,20 @@
     color: var(--white-text);
     font-family: 'Work Sans', sans-serif;
     font-size: 15.5px;
-    font-weight: 500;
-    padding: 14px 30px;
+    font-weight: 600;
+    padding: 15px 32px;
     border-radius: 30px;
     text-decoration: none;
     border: none;
     cursor: pointer;
-    transition: background 0.15s ease;
+    box-shadow: 0 6px 18px rgba(44, 95, 111, 0.28);
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .btn:hover { background: var(--teal-darker); }
+  .btn:hover {
+    background: var(--teal-darker);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(44, 95, 111, 0.34);
+  }
   .btn-outline {
     display: inline-block;
     background: transparent;
@@ -119,7 +124,7 @@
     border-radius: 30px;
     text-decoration: none;
   }
-  .hero .btn { margin-top: 34px; font-size: 16px; }
+  .hero .btn { margin-top: 34px; }
   .hero-photo { display: none; }
 
   /* PROFILE CARD */
@@ -161,11 +166,11 @@
     flex-shrink: 0;
   }
   .profile-card h2 {
-    font-size: 19px;
+    font-size: 20px;
     color: var(--white-text);
   }
   .profile-card p {
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: 1.65;
     color: var(--cream-text);
     margin-top: 14px;
@@ -380,7 +385,7 @@
     .profile-card { grid-column: 1; grid-row: 2; align-self: start; }
     .profile-header img { display: none; }
     .hero .accroche { margin-top: 28px; }
-    .hero .btn { margin-top: 36px; }
+    .hero .btn { margin-top: 40px; }
     .profile-card { margin-top: 36px; }
     .info-card {
       display: flex;
@@ -396,7 +401,7 @@
       padding: 4px 0;
     }
     .info-list li { justify-content: flex-start; width: fit-content; }
-    .info-list li { gap: 14px; font-size: 16px; }
+    .info-list li { gap: 14px; font-size: 15.5px; }
     .info-list li + li { margin-top: 16px; }
 
     .scroll-cards { gap: 24px; }
@@ -404,10 +409,10 @@
 
     /* Smaller, airier hero — title and photo stay compact, rest grows for consistency */
     .hero h1 { font-size: 84px; }
-    .hero .accroche { font-size: 24px; max-width: 560px; }
-    .hero .btn { font-size: 22px; padding: 20px 44px; }
+    .hero .accroche { font-size: 27px; max-width: 560px; }
+    .hero .btn { font-size: 20px; padding: 22px 48px; }
     .profile-card { max-width: 640px; }
-    .profile-card h2 { font-size: 26px; }
+    .profile-card h2 { font-size: 27px; }
     .profile-card p { font-size: 22px; max-width: 600px; }
 
     /* Keep the scrollable sections, price and contact large — smaller type, bigger padding, same line breaks */
