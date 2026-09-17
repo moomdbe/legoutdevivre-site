@@ -437,6 +437,11 @@
     form.contact-form textarea { font-size: 17px; padding: 18px 20px; }
     form.contact-form { max-width: 760px; }
   }
+
+  /* Narrower desktop windows: shrink the photo column so the accroche/bio text keeps its intended line breaks */
+  @media (min-width: 900px) and (max-width: 1249px) {
+    .hero .wrap { grid-template-columns: 1fr 260px; gap: 20px 28px; }
+  }
 </style>
 </head>
 <body>
