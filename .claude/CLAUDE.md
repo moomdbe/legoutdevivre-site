@@ -53,4 +53,4 @@ Ce fichier CLAUDE.md est volontairement court (état courant seulement). Le rais
 
 **Chaque session (design, SEO, chantiers annexes) doit** :
 - Compléter son fichier de notes du jour à chaque fait notable, pas juste en fin de conversation.
-- Mettre en place sa propre Routine quotidienne (`create_trigger`, fires into this session) qui reprend la conversation en fin de journée et complète le fichier de notes avec ce qui s'est passé depuis le dernier passage — pas seulement une pour la session design.
+- Mettre en place sa propre Routine quotidienne (`create_trigger`, **`create_new_session_on_fire: true`** — pas en mode "fires into this session", ça reprendrait toute la conversation à chaque fois et deviendrait cher avec le temps) qui regarde `git log` depuis le dernier passage et complète le fichier de notes avec ce qui a changé — pas seulement une pour la session design.
