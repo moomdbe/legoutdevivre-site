@@ -33,4 +33,10 @@ Ce fichier est la mémoire partagée entre toutes les sessions Claude Code qui t
 
 ## Limite connue
 
-Il n'existe pas de mémoire automatiquement partagée entre sessions Claude Code Remote (l'auto-memory est locale à la machine/conteneur, pas partagée entre environnements cloud). Ce fichier committé est le mécanisme fiable pour transmettre le contexte — pense à le mettre à jour plutôt que de compter sur autre chose.
+Il n'existe pas de mémoire automatiquement partagée entre sessions Claude Code Remote (l'auto-memory est locale à la machine/conteneur, pas partagée entre environnements cloud). Ce fichier committé est le mécanisme fiable pour transmettre le contexte, mais il n'est PAS alimenté en continu — il ne change que quand une session l'édite et push explicitement. Une session déjà ouverte ne voit pas non plus les modifications d'une session sœur tant qu'elle n'a pas refait un `git pull` et relu le fichier.
+
+Trois sessions parallèles travaillent sur ce repo : celle-ci (design), "SEO — legoutdevivre.co", et "Chantiers annexes — legoutdevivre.co". Pour rester à jour entre elles :
+
+- **Avant de démarrer une tâche un peu conséquente** (pas juste une micro-question) : `git pull origin main` puis relire ce fichier, au cas où une session sœur l'aurait modifié depuis le dernier chargement.
+- **Dès qu'une décision, un statut ou un fait durable apparaît** (pas une exploration en cours) : mettre à jour ce fichier tout de suite et push — ne pas attendre la fin de la conversation. Commit dédié, pas besoin d'attendre un gros batch de changements.
+- Garder les sections courtes et factuelles (statut, pas de raisonnement) pour que ça reste lisible par les autres sessions et ne gonfle pas inutilement le contexte.
