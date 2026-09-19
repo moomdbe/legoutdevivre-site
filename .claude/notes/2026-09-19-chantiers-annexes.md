@@ -11,7 +11,17 @@ Session dédiée aux chantiers marketing annexes (hors design, hors SEO — sess
 - **Partenariats/preuve sociale** : pour plus tard (une fois des patients).
 - **SEA** : pas avant trafic organique établi.
 
-Question posée à l'utilisateur en ouverture : par quel chantier commencer, et statut réel de chacun (le CLAUDE.md pouvait être daté). Réponse pas encore reçue au moment de cette entrée.
+Question posée à l'utilisateur en ouverture : par quel chantier commencer, et statut réel de chacun (le CLAUDE.md pouvait être daté).
+
+## GBP — vérification confirmée
+
+L'utilisateur a répondu qu'il avait créé le GBP avec l'assistant précédemment. Pour trancher le statut de vérification (seul point resté ouvert), je l'ai orienté vers business.google.com / une recherche du nom sur Google, en lui expliquant les deux signes à chercher (bandeau "Vérifiez votre profil" vs badge de vérification).
+
+Capture d'écran fournie : recherche Google "Le Goût de Vivre — Mohamed Belkoura — Psychanalyste", panneau "Votre établissement sur Google" avec badge coché bleu, et mention "✓ Vous gérez cette fiche d'établissement" dans le knowledge panel. Accès complet à l'édition (Éditer la fiche, Posts, Performances, Publicité) visible — ce qui n'est disponible qu'après vérification.
+
+**Conclusion : GBP vérifié.** Chantier GBP considéré terminé pour la partie configuration/vérification ; reste ouvert pour des itérations futures (récolte d'avis, posts réguliers, photos) — à recroiser avec le chantier "Partenariats/preuve sociale" une fois qu'il y a des patients.
+
+CLAUDE.md mis à jour en conséquence (section "Stratégie marketing — état des lieux").
 
 ## Mise en place de la routine quotidienne
 

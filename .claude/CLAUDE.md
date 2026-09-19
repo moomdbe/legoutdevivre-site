@@ -23,7 +23,7 @@ DA retenue et déployée : **version teal plate simple** (single-hue, formes/omb
 
 ## Stratégie marketing — état des lieux
 
-**Google Business Profile** : bio/nom/lien/CTA "Prendre rendez-vous" configurés, catégorie "Thérapeute" (pas "Psychothérapeute"). Vérification (carte postale/tel/email) en attente — statut à confirmer avec l'utilisateur.
+**Google Business Profile** : bio/nom/lien/CTA "Prendre rendez-vous" configurés, catégorie "Thérapeute" (pas "Psychothérapeute"). **Vérifié** (badge "Vous gérez cette fiche d'établissement" visible sur la fiche, accès complet à l'édition/Posts/Performances/Publicité confirmé le 19/09/2026). Chantier terminé, sauf itérations futures (avis, posts, photos).
 
 **Instagram (@therapiemedia)** : compte existant conservé (contenu déjà cohérent : art symboliste + réflexion psychanalytique, niche mais avec traction). Bio/nom/lien vers le site/CTA mis à jour. Piste long terme : contenu vidéo régulier + LinkedIn pour partenariats pro.
 
