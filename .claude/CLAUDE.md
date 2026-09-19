@@ -17,6 +17,10 @@ Ce fichier est la mémoire partagée entre toutes les sessions Claude Code qui t
 - Positionnement final : "psychanalyste" (pas "psychopraticien", décision tranchée tôt dans le projet).
 - Ton/identité : "Le Goût de Vivre" — vivant, profond, ni startup/fade, ni has-been.
 
+## Direction artistique — état actuel
+
+DA retenue et déployée : **version teal plate simple** (single-hue, formes/ombres classiques, pas de dégradés/ombres en couches/formes organiques/tilt 3D). Une exploration complète (indigo/violet/or, formes organiques, dégradés, ombres en couches, tilt 3D sur la photo) a été menée puis abandonnée — l'utilisateur a tranché pour revenir à la version simple. Ne pas réintroduire ces éléments sans qu'il le redemande explicitement. Détail du raisonnement et des essais dans `.claude/notes/2026-09-19.md`.
+
 ## Stratégie marketing — état des lieux
 
 **Google Business Profile** : bio/nom/lien/CTA "Prendre rendez-vous" configurés, catégorie "Thérapeute" (pas "Psychothérapeute"). Vérification (carte postale/tel/email) en attente — statut à confirmer avec l'utilisateur.
@@ -29,7 +33,9 @@ Ce fichier est la mémoire partagée entre toutes les sessions Claude Code qui t
 
 **SEA (pub payante)** : seulement une fois le trafic organique établi, pas avant.
 
-**SEO** : suivi dans une session Claude Code dédiée séparée ("SEO — legoutdevivre.co") pour ne pas polluer les sessions design. Cadence hebdomadaire prévue, notifications push. Outillage : Google Search Console (compte de service à créer par l'utilisateur, clé JSON à transmettre) + connecteur OpenRush (déjà connecté, outils `mcp__OpenRush__*` disponibles) pour la recherche de mots-clés/opportunités.
+**SEO** : suivi dans une session Claude Code dédiée séparée ("SEO — legoutdevivre.co") pour ne pas polluer les sessions design. Cadence hebdomadaire prévue, notifications push. Outillage : Google Search Console (compte de service à créer par l'utilisateur, clé JSON à transmettre) + connecteur OpenRush (connecté par l'utilisateur, outils `mcp__OpenRush__*` disponibles) pour la recherche de mots-clés/opportunités.
+
+**Chantiers annexes** (GBP/Instagram/annuaires/partenariats/SEA ci-dessus) : suivis dans une session Claude Code dédiée séparée ("Chantiers annexes — legoutdevivre.co"), même logique que pour le SEO.
 
 ## Limite connue
 
@@ -40,3 +46,11 @@ Trois sessions parallèles travaillent sur ce repo : celle-ci (design), "SEO —
 - **Avant de démarrer une tâche un peu conséquente** (pas juste une micro-question) : `git pull origin main` puis relire ce fichier, au cas où une session sœur l'aurait modifié depuis le dernier chargement.
 - **Dès qu'une décision, un statut ou un fait durable apparaît** (pas une exploration en cours) : mettre à jour ce fichier tout de suite et push — ne pas attendre la fin de la conversation. Commit dédié, pas besoin d'attendre un gros batch de changements.
 - Garder les sections courtes et factuelles (statut, pas de raisonnement) pour que ça reste lisible par les autres sessions et ne gonfle pas inutilement le contexte.
+
+### Journal détaillé (`.claude/notes/`)
+
+Ce fichier CLAUDE.md est volontairement court (état courant seulement). Le raisonnement, les essais écartés, le détail complet de ce qui s'est passé vivent dans `.claude/notes/AAAA-MM-JJ.md` — un fichier par jour, un par sujet (design ici ; le SEO et les chantiers annexes doivent faire pareil dans leurs propres fichiers datés, ex. `.claude/notes/2026-09-19-seo.md`). Ces fichiers ne sont pas chargés automatiquement dans les sessions — à lire seulement quand le détail est utile.
+
+**Chaque session (design, SEO, chantiers annexes) doit** :
+- Compléter son fichier de notes du jour à chaque fait notable, pas juste en fin de conversation.
+- Mettre en place sa propre Routine quotidienne (`create_trigger`, fires into this session) qui reprend la conversation en fin de journée et complète le fichier de notes avec ce qui s'est passé depuis le dernier passage — pas seulement une pour la session design.
