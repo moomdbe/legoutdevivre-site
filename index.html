@@ -40,9 +40,14 @@
   :root {
     --cream: #F6F3EA;
     --cream-text: #DCE8E8;
-    --teal-dark: #2C5F6F;
-    --teal-darker: #25525F;
-    --teal-light: #7FA9B4;
+    --teal-dark: #38386E;
+    --teal-darker: #2A2A56;
+    --teal-light: #EADFBE;
+    --emerald: #1F6B4A;
+    --emerald-darker: #175639;
+    --gold: #C9A227;
+    --gold-soft: #E3CD8A;
+    --ink-warm: #3D3320;
     --ink: #233A3F;
     --ink-soft: rgba(35,58,63,0.8);
     --ink-faint: rgba(35,58,63,0.55);
@@ -97,34 +102,34 @@
   }
   .btn {
     display: inline-block;
-    background: var(--teal-dark);
+    background: linear-gradient(180deg, #2C8560 0%, var(--emerald) 55%, var(--emerald-darker) 100%);
     color: var(--white-text);
     font-family: 'Work Sans', sans-serif;
     font-size: 15.5px;
     font-weight: 600;
     padding: 15px 32px;
-    border-radius: 30px;
+    border-radius: 22px 26px 20px 28px;
     text-decoration: none;
     border: none;
     cursor: pointer;
-    box-shadow: 0 6px 18px rgba(44, 95, 111, 0.28);
-    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 14px 26px rgba(23,86,57,0.35), 0 3px 6px rgba(0,0,0,0.16), inset 0 1.5px 0 rgba(255,255,255,0.3), inset 0 -3px 6px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-radius 0.3s ease;
   }
   .btn:hover {
-    background: var(--teal-darker);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 22px rgba(44, 95, 111, 0.34);
+    transform: translateY(-2px) scale(1.015);
+    box-shadow: 0 18px 32px rgba(201,162,39,0.32), 0 4px 8px rgba(0,0,0,0.18), inset 0 1.5px 0 rgba(255,255,255,0.35), inset 0 -3px 6px rgba(0,0,0,0.15);
+    border-radius: 28px 20px 26px 22px;
   }
   .btn-outline {
     display: inline-block;
     background: transparent;
-    color: var(--teal-dark);
-    border: 1.5px solid var(--teal-dark);
+    color: var(--emerald);
+    border: 1.5px solid var(--emerald);
     font-family: 'Work Sans', sans-serif;
     font-size: 15px;
     font-weight: 500;
     padding: 11.5px 28px;
-    border-radius: 30px;
+    border-radius: 16px;
     text-decoration: none;
   }
   .hero .btn { margin-top: 26px; }
@@ -132,18 +137,36 @@
 
   /* PROFILE CARD */
   .profile-card {
-    background: var(--teal-dark);
-    border-radius: 18px;
+    background: linear-gradient(155deg, #4E4E92 0%, var(--teal-dark) 55%, var(--teal-darker) 100%);
+    border-radius: 38px 44px 30px 48px / 46px 34px 50px 32px;
     padding: 32px;
     margin: 32px 0 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 50px rgba(20,20,50,0.28), 0 10px 18px rgba(20,20,50,0.22), inset 0 1.5px 0 rgba(255,255,255,0.16), inset 0 -18px 30px rgba(0,0,0,0.18);
+    transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-radius 0.5s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  .profile-card::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 22px;
+    width: 46%;
+    height: 34%;
+    background: radial-gradient(ellipse at top left, rgba(255,255,255,0.14), rgba(255,255,255,0) 70%);
+    border-radius: inherit;
+    pointer-events: none;
   }
 
   /* PRACTICAL INFO LIST */
   .info-card {
     margin-top: 28px;
-    background: var(--teal-light);
-    border-radius: 18px;
+    background: linear-gradient(155deg, #F3E9CC 0%, var(--teal-light) 55%, var(--gold) 160%);
+    border-radius: 10px 46px 30px 42px / 40px 14px 46px 30px;
     padding: 22px 24px;
+    box-shadow: 0 20px 36px rgba(120,92,10,0.22), 0 6px 12px rgba(120,92,10,0.18), inset 0 1.5px 0 rgba(255,255,255,0.5), inset 0 -12px 22px rgba(160,120,10,0.16);
   }
   .info-list { list-style: none; }
   .info-list li {
@@ -151,7 +174,7 @@
     align-items: center;
     gap: 12px;
     font-size: 14px;
-    color: #1F3A40;
+    color: var(--ink-warm);
     font-family: 'Work Sans', sans-serif;
   }
   .info-list li + li { margin-top: 12px; }
@@ -211,9 +234,10 @@
     scroll-snap-align: start;
   }
   .item-row.light {
-    background: rgba(44,95,111,0.06);
-    border-radius: 16px;
+    background: rgba(201,162,39,0.08);
+    border-radius: 20px 26px 18px 28px;
     padding: 24px 20px 26px;
+    box-shadow: 0 10px 22px rgba(120,92,10,0.10), inset 0 1px 0 rgba(255,255,255,0.5);
   }
   .item-row svg.icon { flex-shrink: 0; margin-top: 0; }
   .item-row h3 {
@@ -274,19 +298,20 @@
     flex-wrap: wrap;
   }
   .tarif-block {
-    border-radius: 18px;
+    border-radius: 22px 28px 18px 26px;
     padding: 20px;
     flex: 1;
     min-width: 140px;
+    box-shadow: 0 16px 28px rgba(0,0,0,0.14), inset 0 1.5px 0 rgba(255,255,255,0.2);
   }
-  .tarif-block.standard { background: var(--teal-dark); }
-  .tarif-block.solidaire { background: var(--teal-light); }
+  .tarif-block.standard { background: linear-gradient(155deg, #4E4E92 0%, var(--teal-dark) 60%, var(--teal-darker) 100%); }
+  .tarif-block.solidaire { background: linear-gradient(155deg, #F3E9CC 0%, var(--teal-light) 60%, var(--gold) 150%); box-shadow: 0 16px 28px rgba(120,92,10,0.18), inset 0 1.5px 0 rgba(255,255,255,0.5); }
   .tarif-block .label {
     font-size: 13.5px;
     font-family: 'Work Sans', sans-serif;
   }
-  .tarif-block.standard .label { color: #B9D2D5; }
-  .tarif-block.solidaire .label { color: #1F3A40; }
+  .tarif-block.standard .label { color: #C7C7E8; }
+  .tarif-block.solidaire .label { color: var(--ink-warm); }
   .tarif-block .price {
     font-family: 'Fraunces', serif;
     font-weight: 600;
@@ -294,7 +319,7 @@
     margin-top: 6px;
   }
   .tarif-block.standard .price { color: var(--white-text); }
-  .tarif-block.solidaire .price { color: #1F3A40; }
+  .tarif-block.solidaire .price { color: var(--ink-warm); }
   .tarif-note {
     font-size: 14.5px;
     color: var(--ink-soft);
@@ -351,7 +376,7 @@
     font-size: 13.5px;
     margin-top: 14px;
   }
-  .form-status.success { display: block; color: var(--teal-dark); }
+  .form-status.success { display: block; color: var(--emerald); }
   .form-status.error { display: block; color: #B3403C; }
 
   footer {
@@ -449,9 +474,9 @@
 
 <div class="hero">
   <svg class="ripple" width="90" height="90" viewBox="0 0 90 90">
-    <circle cx="45" cy="45" r="8" fill="none" stroke="#2C5F6F" stroke-width="2"/>
-    <circle cx="45" cy="45" r="20" fill="none" stroke="#2C5F6F" stroke-width="1.5" opacity="0.6"/>
-    <circle cx="45" cy="45" r="32" fill="none" stroke="#2C5F6F" stroke-width="1" opacity="0.35"/>
+    <circle cx="45" cy="45" r="8" fill="none" stroke="#38386E" stroke-width="2"/>
+    <circle cx="45" cy="45" r="20" fill="none" stroke="#38386E" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="45" cy="45" r="32" fill="none" stroke="#38386E" stroke-width="1" opacity="0.35"/>
   </svg>
   <div class="wrap">
     <div class="hero-text">
@@ -472,16 +497,16 @@
 
     <div class="info-card">
       <ul class="info-list">
-        <li><svg width="22" height="22" viewBox="0 0 22 22"><path d="M6 3 H10 L11 6 L9 8 C10 11 12 13 15 14 L17 12 L20 13 V17 C20 18 19 19 18 19 C11 19 3 11 3 5 C3 4 4 3 6 3 Z" fill="none" stroke="#1F3A40" stroke-width="1.4" stroke-linejoin="round"/></svg> Par téléphone</li>
-        <li><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="8" fill="none" stroke="#1F3A40" stroke-width="1.4"/><path d="M11 6 L11 11 L15 13" fill="none" stroke="#1F3A40" stroke-width="1.4" stroke-linecap="round"/></svg> 50 minutes par séance</li>
-        <li><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="8" fill="none" stroke="#1F3A40" stroke-width="1.4"/><path d="M3 11 H19 M11 3 C7 7 7 15 11 19 C15 15 15 7 11 3 Z" fill="none" stroke="#1F3A40" stroke-width="1.2"/></svg> France et espace francophone</li>
-        <li><svg width="22" height="22" viewBox="0 0 22 22"><path d="M2 13 Q6 6 11 13 T20 13" fill="none" stroke="#1F3A40" stroke-width="1.4" stroke-linecap="round"/></svg> Rythme adapté à vous</li>
+        <li><svg width="22" height="22" viewBox="0 0 22 22"><path d="M6 3 H10 L11 6 L9 8 C10 11 12 13 15 14 L17 12 L20 13 V17 C20 18 19 19 18 19 C11 19 3 11 3 5 C3 4 4 3 6 3 Z" fill="none" stroke="#3D3320" stroke-width="1.4" stroke-linejoin="round"/></svg> Par téléphone</li>
+        <li><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="8" fill="none" stroke="#3D3320" stroke-width="1.4"/><path d="M11 6 L11 11 L15 13" fill="none" stroke="#3D3320" stroke-width="1.4" stroke-linecap="round"/></svg> 50 minutes par séance</li>
+        <li><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="8" fill="none" stroke="#3D3320" stroke-width="1.4"/><path d="M3 11 H19 M11 3 C7 7 7 15 11 19 C15 15 15 7 11 3 Z" fill="none" stroke="#3D3320" stroke-width="1.2"/></svg> France et espace francophone</li>
+        <li><svg width="22" height="22" viewBox="0 0 22 22"><path d="M2 13 Q6 6 11 13 T20 13" fill="none" stroke="#3D3320" stroke-width="1.4" stroke-linecap="round"/></svg> Rythme adapté à vous</li>
       </ul>
     </div>
 
   </div>
   <svg class="wave" width="100%" height="48" viewBox="0 0 640 48" preserveAspectRatio="none">
-    <path d="M0 30 C 80 6, 160 6, 240 24 C 320 42, 400 42, 480 24 C 560 6, 620 6, 640 20 L640 48 L0 48 Z" fill="#2C5F6F"/>
+    <path d="M0 30 C 80 6, 160 6, 240 24 C 320 42, 400 42, 480 24 C 560 6, 620 6, 640 20 L640 48 L0 48 Z" fill="#38386E"/>
   </svg>
 </div>
 
@@ -490,7 +515,7 @@
 
     <div class="scroll-cards">
       <div class="item-row">
-        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M11 2 L14 9 L20 11 L14 13 L11 20 L8 13 L2 11 L8 9 Z" fill="none" stroke="#8FB8BE" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M11 2 L14 9 L20 11 L14 13 L11 20 L8 13 L2 11 L8 9 Z" fill="none" stroke="#E3CD8A" stroke-width="1.4" stroke-linejoin="round"/></svg>
         <div>
           <h3>Mon approche</h3>
           <p>Mon approche puise dans la psychanalyse et dans la philosophie, pour interroger nos blocages ordinaires : ces &laquo; névroses du quotidien &raquo; qui n'ont rien de pathologique, mais qui pèsent sur nos choix de vie et nos relations.</p>
@@ -498,7 +523,7 @@
       </div>
 
       <div class="item-row">
-        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M3 18 C 6 6, 16 6, 19 18" fill="none" stroke="#8FB8BE" stroke-width="1.4"/><circle cx="11" cy="6" r="2" fill="#8FB8BE"/></svg>
+        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M3 18 C 6 6, 16 6, 19 18" fill="none" stroke="#E3CD8A" stroke-width="1.4"/><circle cx="11" cy="6" r="2" fill="#E3CD8A"/></svg>
         <div>
           <h3>Ma philosophie</h3>
           <p>Je crois profondément à la légèreté, au jeu et au rire comme chemins vers soi, autant qu'à la profondeur de l'introspection. Se défaire des couches de sérieux, pour retrouver un goût de vivre plus créatif.</p>
@@ -506,7 +531,7 @@
       </div>
 
       <div class="item-row">
-        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><rect x="3" y="6" width="16" height="12" rx="1.5" fill="none" stroke="#8FB8BE" stroke-width="1.4"/><path d="M3 9 L19 9" stroke="#8FB8BE" stroke-width="1.4"/></svg>
+        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><rect x="3" y="6" width="16" height="12" rx="1.5" fill="none" stroke="#E3CD8A" stroke-width="1.4"/><path d="M3 9 L19 9" stroke="#E3CD8A" stroke-width="1.4"/></svg>
         <div>
           <h3>Ma formation</h3>
           <p>Master en psychanalyse à l'université de Montpellier et formation spécialisée à l'École Pratique des Hautes Études en Psychopathologie.</p>
@@ -530,7 +555,7 @@
 
     <div class="scroll-cards">
       <div class="item-row light">
-        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M4 18 L4 8 L11 3 L18 8 L18 18 Z" fill="none" stroke="#2C5F6F" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M4 18 L4 8 L11 3 L18 8 L18 18 Z" fill="none" stroke="#38386E" stroke-width="1.4" stroke-linejoin="round"/></svg>
         <div>
           <h3>L'accompagnement</h3>
           <p>Vous n'avez pas besoin d'aller mal pour consulter. Les séances ont lieu par téléphone, en français, 50 minutes chacune. Le rythme se décide ensemble.</p>
@@ -538,7 +563,7 @@
       </div>
 
       <div class="item-row light">
-        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><circle cx="11" cy="11" r="9.5" fill="none" stroke="#2C5F6F" stroke-width="1.4"/><path d="M7 11 L10 14 L15 8" fill="none" stroke="#2C5F6F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><circle cx="11" cy="11" r="9.5" fill="none" stroke="#38386E" stroke-width="1.4"/><path d="M7 11 L10 14 L15 8" fill="none" stroke="#38386E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <div>
           <h3>Pourquoi consulter</h3>
           <p>Clarifier une décision de vie, sortir d'une routine qui pèse, mieux comprendre une relation, ou simplement vous retrouver.</p>
@@ -546,7 +571,7 @@
       </div>
 
       <div class="item-row light">
-        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M11 2 L19 6 L19 12 C19 17 15.5 19.5 11 20 C6.5 19.5 3 17 3 12 L3 6 Z" fill="none" stroke="#2C5F6F" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        <svg class="icon" width="26" height="26" viewBox="0 0 22 22"><path d="M11 2 L19 6 L19 12 C19 17 15.5 19.5 11 20 C6.5 19.5 3 17 3 12 L3 6 Z" fill="none" stroke="#38386E" stroke-width="1.4" stroke-linejoin="round"/></svg>
         <div>
           <h3>Créneaux solidaires</h3>
           <p>Un nombre limité de créneaux à tarif réduit chaque semaine, pour que l'accompagnement reste accessible à tous.</p>
@@ -627,6 +652,19 @@
     }
     container.addEventListener('scroll', update, { passive: true });
   });
+
+  var profileCard = document.querySelector('.profile-card');
+  if (profileCard && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    profileCard.addEventListener('mousemove', function (e) {
+      var r = profileCard.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - 0.5;
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      profileCard.style.transform = 'perspective(700px) rotateX(' + (py * -8).toFixed(2) + 'deg) rotateY(' + (px * 10).toFixed(2) + 'deg) scale(1.015)';
+    });
+    profileCard.addEventListener('mouseleave', function () {
+      profileCard.style.transform = '';
+    });
+  }
 
   var contactForm = document.getElementById('contact-form');
   if (contactForm) {
