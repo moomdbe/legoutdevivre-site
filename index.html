@@ -162,10 +162,13 @@
 
   /* PRACTICAL INFO LIST */
   .info-card {
-    margin-top: 28px;
+    margin-top: -22px;
+    margin-left: 28px;
     background: linear-gradient(155deg, #F3E9CC 0%, var(--teal-light) 55%, var(--gold) 160%);
     border-radius: 10px 46px 30px 42px / 40px 14px 46px 30px;
-    padding: 22px 24px;
+    padding: 22px 24px 22px 36px;
+    position: relative;
+    z-index: 2;
     box-shadow: 0 20px 36px rgba(120,92,10,0.22), 0 6px 12px rgba(120,92,10,0.18), inset 0 1.5px 0 rgba(255,255,255,0.5), inset 0 -12px 22px rgba(160,120,10,0.16);
   }
   .info-list { list-style: none; }
@@ -427,6 +430,8 @@
       grid-row: 2;
       align-self: stretch;
       margin-top: 36px;
+      margin-left: 0;
+      z-index: auto;
       background: none;
       border-radius: 0;
       padding: 4px 0;
