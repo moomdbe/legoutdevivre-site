@@ -27,7 +27,7 @@ DA retenue et déployée : **version teal plate simple** (single-hue, formes/omb
 
 **Instagram (@therapiemedia)** : compte existant conservé (contenu déjà cohérent : art symboliste + réflexion psychanalytique, niche mais avec traction). Bio/nom/lien vers le site/CTA mis à jour. Piste long terme : contenu vidéo régulier + LinkedIn pour partenariats pro.
 
-**Annuaires spécialisés** : priorité Psychologies.com et Annuaire-thérapeutes ; à évaluer aussi PagesJaunes et Therapeutes.com. Pas confirmé comme finalisé.
+**Annuaires spécialisés** : Psychologies.com abandonné comme piste (aucune fonctionnalité d'annuaire pro confirmée, site inaccessible depuis l'environnement cloud pour vérifier). Priorité désormais : **Annuaire Thérapeutes** (annuaire-therapeutes.com — forfait PRO à 40€/mois, essai gratuit sans engagement, pas de tier gratuit exploitable ; catégorie "psychanalyse" + filtre "consultation à distance" disponibles). **Therapeutes.com** : un profil existe déjà (créé avant cette session, visité par erreur en pensant que c'était Annuaire Thérapeutes) — nom/titre "Psychanalyste"/photo déjà remplis, mais affiche une adresse physique "231 Rue Marcadet, 75018, Paris" alors que le site légoutdevivre.co ne positionne que du téléphone — cohérence à trancher avec l'utilisateur (cabinet réel en plus du téléphone, ou info à retirer). PagesJaunes pas encore évalué.
 
 **Partenariats / preuve sociale** (plus tard, une fois des patients) : contacts thérapeutes/médecins, système de demande d'avis clients, presse/podcasts invité.
 
