@@ -45,16 +45,9 @@ Google Search Console **opérationnel** : propriété `sc-domain:legoutdevivre.c
 
 Il n'existe pas de mémoire automatiquement partagée entre sessions Claude Code Remote (l'auto-memory est locale à la machine/conteneur, pas partagée entre environnements cloud). Ce fichier committé est le mécanisme fiable pour transmettre le contexte, mais il n'est PAS alimenté en continu — il ne change que quand une session l'édite et push explicitement. Une session déjà ouverte ne voit pas non plus les modifications d'une session sœur tant qu'elle n'a pas refait un `git pull` et relu le fichier.
 
-Trois sessions parallèles travaillent sur ce repo : celle-ci (design), "SEO — legoutdevivre.co", et "Chantiers annexes — legoutdevivre.co". Pour rester à jour entre elles :
+Trois sessions parallèles travaillent sur ce repo : celle-ci (design), "SEO — legoutdevivre.co", et "Chantiers annexes — legoutdevivre.co".
 
-- **Avant de démarrer une tâche un peu conséquente** (pas juste une micro-question) : `git pull origin main` puis relire ce fichier, au cas où une session sœur l'aurait modifié depuis le dernier chargement.
-- **Dès qu'une décision, un statut ou un fait durable apparaît** (pas une exploration en cours) : mettre à jour ce fichier tout de suite et push — ne pas attendre la fin de la conversation. Commit dédié, pas besoin d'attendre un gros batch de changements.
-- Garder les sections courtes et factuelles (statut, pas de raisonnement) pour que ça reste lisible par les autres sessions et ne gonfle pas inutilement le contexte.
+**Système arrêté (20/09/2026, décision de Mohamed) : coûtait trop de crédits d'utilisation.** Les Routines quotidiennes "journal" des 3 sessions ont été désactivées (`enabled: false`, pas supprimées — l'historique reste). **N'en recréez pas.** N'écrivez plus dans `.claude/notes/` de façon systématique et n'éditez plus ce fichier automatiquement à chaque fait durable — seulement à la demande explicite de Mohamed. Le protocole "pull avant toute tâche conséquente" ci-dessous reste une bonne pratique ponctuelle mais n'est plus une obligation systématique. Les fichiers `.claude/notes/*.md` déjà écrits restent disponibles si besoin de contexte historique, simplement plus alimentés automatiquement.
 
-### Journal détaillé (`.claude/notes/`)
-
-Ce fichier CLAUDE.md est volontairement court (état courant seulement). Le raisonnement, les essais écartés, le détail complet de ce qui s'est passé vivent dans `.claude/notes/AAAA-MM-JJ.md` — un fichier par jour, un par sujet (design ici ; le SEO et les chantiers annexes doivent faire pareil dans leurs propres fichiers datés, ex. `.claude/notes/2026-09-19-seo.md`). Ces fichiers ne sont pas chargés automatiquement dans les sessions — à lire seulement quand le détail est utile.
-
-**Chaque session (design, SEO, chantiers annexes) doit** :
-- Compléter son fichier de notes du jour à chaque fait notable, pas juste en fin de conversation.
-- Mettre en place sa propre Routine quotidienne (`create_trigger`, **`create_new_session_on_fire: true`** — pas en mode "fires into this session", ça reprendrait toute la conversation à chaque fois et deviendrait cher avec le temps) qui regarde `git log` depuis le dernier passage et complète le fichier de notes avec ce qui a changé — pas seulement une pour la session design.
+- Un `git pull origin main` avant une tâche vraiment conséquente reste utile si vous soupçonnez qu'une autre session a changé quelque chose d'important — mais ce n'est plus systématique.
+- Garder ce fichier court et factuel s'il est modifié à la demande de l'utilisateur.
