@@ -261,6 +261,38 @@
     margin-top: 28px;
   }
 
+  /* RESSOURCES */
+  .ressources h2 {
+    font-size: 20px;
+    color: var(--ink);
+    margin-top: 44px;
+  }
+  .article-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .article-link {
+    display: block;
+    background: rgba(44,95,111,0.06);
+    border-radius: 16px;
+    padding: 20px 20px 22px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .article-link:hover { background: rgba(44,95,111,0.1); }
+  .article-link h3 {
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .article-link p {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+
   /* TARIFS */
   .tarifs h2 {
     font-size: 20px;
@@ -431,7 +463,11 @@
       padding: 64px;
     }
     .item-row.light { padding: 56px 64px; }
-    .tarifs h2, .contact h2 { font-size: 50px; }
+    .ressources h2, .tarifs h2, .contact h2 { font-size: 50px; }
+    .article-links { flex-direction: row; gap: 24px; margin-top: 36px; }
+    .article-link { flex: 1; padding: 40px; }
+    .article-link h3 { font-size: 24px; }
+    .article-link p { font-size: 17px; margin-top: 14px; }
     .tarif-block { padding: 40px; }
     .tarif-block .price { font-size: 72px; }
     .tarif-block .label { font-size: 17px; }
@@ -557,6 +593,20 @@
       <span class="dot active"></span>
       <span class="dot"></span>
       <span class="dot"></span>
+    </div>
+
+    <div class="ressources">
+      <h2>Pour aller plus loin</h2>
+      <div class="article-links">
+        <a class="article-link" href="/articles/definition-psychanalyse.html">
+          <h3>Psychanalyse : ce que ce mot recouvre vraiment</h3>
+          <p>Le mot revient partout, rarement expliqué.</p>
+        </a>
+        <a class="article-link" href="/articles/pourquoi-la-psychanalyse-revient.html">
+          <h3>Psychanalyse : pourquoi ça revient dans l'air du temps ?</h3>
+          <p>Elle fait un grand retour chez une génération qui n'a pourtant pas grandi avec Freud sur sa table de chevet.</p>
+        </a>
+      </div>
     </div>
 
     <div class="tarifs-contact">
