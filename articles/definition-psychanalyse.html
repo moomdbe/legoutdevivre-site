@@ -57,11 +57,17 @@
   }
   p { margin: 0; }
   a { color: inherit; }
+
+  /* .wrap owns the horizontal margin for every section on the page;
+     other classes on the same element must only ever set
+     padding-top/padding-bottom, never the padding shorthand,
+     or they silently zero this out. */
   .wrap {
     max-width: 640px;
     margin: 0 auto;
     padding: 0 24px;
   }
+
   .btn {
     display: inline-block;
     background: var(--teal-dark);
@@ -84,7 +90,8 @@
   }
 
   .top-bar {
-    padding: 28px 0;
+    padding-top: 28px;
+    padding-bottom: 28px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -95,47 +102,51 @@
   .top-bar .back-link:hover { color: var(--ink); }
   .top-bar .rdv-link { color: var(--teal-dark); font-weight: 600; }
 
-  .article-header { padding: 8px 0; }
+  .article-header { padding-top: 8px; padding-bottom: 8px; }
   .article-header h1 {
-    font-size: clamp(28px, 5vw, 40px);
-    line-height: 1.15;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.18;
     color: var(--ink);
   }
   .chapo {
     font-size: 17.5px;
     line-height: 1.6;
     color: var(--ink-soft);
-    margin-top: 20px;
+    margin-top: 18px;
   }
 
-  .article-body { padding: 8px 0 16px; }
+  .article-body { padding-top: 8px; padding-bottom: 16px; }
   .article-body h2 {
-    font-size: 23px;
+    font-size: 21px;
     line-height: 1.3;
     color: var(--ink);
-    margin-top: 44px;
+    margin-top: 40px;
   }
   .article-body p {
     font-size: 16.5px;
-    line-height: 1.75;
+    line-height: 1.7;
     color: var(--ink);
-    margin-top: 16px;
+    margin-top: 18px;
   }
 
   .cta-card {
     background: var(--teal-dark);
-    border-radius: 18px;
-    padding: 32px;
-    margin: 48px 0 16px;
+    border-radius: 16px;
+    padding: 24px 26px;
+    margin: 40px 0 8px;
   }
-  .cta-card h2 { color: var(--white-text); font-size: 22px; }
+  .cta-card h2 { color: var(--white-text); font-size: 19px; }
   .cta-card p {
     color: var(--cream-text);
-    font-size: 15.5px;
-    line-height: 1.6;
-    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.55;
+    margin-top: 8px;
   }
-  .cta-card .btn { margin-top: 22px; }
+  .cta-card .btn {
+    margin-top: 18px;
+    padding: 12px 26px;
+    font-size: 14.5px;
+  }
 
   footer {
     padding: 40px 0 32px;
@@ -144,6 +155,22 @@
     line-height: 1.6;
   }
   footer a { text-decoration: underline; }
+
+  /* Comfortable desktop reading: a touch wider than the mobile
+     column, with slightly larger type so the page reads as
+     deliberate editorial layout rather than a narrow column lost
+     in empty margins. Intentionally NOT the home's 1200px (that
+     width is for its photo+text grid, not for reading prose). */
+  @media (min-width: 760px) {
+    .wrap { max-width: 720px; }
+    .article-header h1 { font-size: 44px; }
+    .chapo { font-size: 19px; }
+    .article-body h2 { font-size: 24px; }
+    .article-body p { font-size: 17.5px; line-height: 1.75; }
+    .cta-card { padding: 30px 34px; }
+    .cta-card h2 { font-size: 21px; }
+    .cta-card p { font-size: 15.5px; }
+  }
 </style>
 </head>
 <body>
