@@ -9,6 +9,7 @@ Ce fichier est la mémoire partagée entre toutes les sessions Claude Code qui t
 - **Cloudflare Workers** (assets statiques, `wrangler.jsonc`) : suit `main` en déploiement production.
 - **Netlify** : bridge temporaire pour le domaine live `legoutdevivre.co`, suit aussi `main`.
 - **Workflow de design établi** : toujours itérer sur la branche `claude/design-en-cours` (push libre, ne déclenche qu'un rebuild de preview Cloudflare, jamais Netlify). Ne merger dans `main` que sur validation explicite de l'utilisateur — ça redéploie Cloudflare prod ET Netlify en même temps.
+- **Écart connu (20-21/09)** : la session SEO a poussé du contenu (articles + section "Pour aller plus loin") directement sur `main`, sans passer par `claude/design-en-cours` ni validation explicite préalable — décision de contenu prise avec l'utilisateur dans cette session-là, mais le mécanisme de merge n'a pas été respecté. `main` a divergé de `claude/design-en-cours` (qui avait en parallèle une réduction d'échelle desktop non coordonnée) ; réconcilié le 21/09 en gardant la version `main` (celle de SEO, déjà live) comme base. **Toute session qui modifie `index.html` ou du CSS partagé (échelle desktop, typographie, largeur du conteneur `.wrap`, tailles de `.profile-card`/`.item-row`/etc.) doit d'abord `git pull origin main` et regarder `git log` récent pour repérer un travail en cours ailleurs sur les mêmes zones, avant de pousser — sur `claude/design-en-cours` comme directement sur `main`.**
 - URL de preview Cloudflare : `https://claude-design-en-cours-legoutdevivre-site.mohamed-belkoura.workers.dev`
 - **Domaine `legoutdevivre.co`** : encore chez Netlify au moment de la rédaction, verrouillé par une protection anti-hijacking. Déverrouillage attendu vers le 21 septembre 2026, puis transfert prévu vers Cloudflare Registrar. Statut à revérifier — pas de confirmation que ce soit fait.
 
@@ -20,6 +21,10 @@ Ce fichier est la mémoire partagée entre toutes les sessions Claude Code qui t
 ## Direction artistique — état actuel
 
 DA retenue et déployée : **version teal plate simple** (single-hue, formes/ombres classiques, pas de dégradés/ombres en couches/formes organiques/tilt 3D). Une exploration complète (indigo/violet/or, formes organiques, dégradés, ombres en couches, tilt 3D sur la photo) a été menée puis abandonnée — l'utilisateur a tranché pour revenir à la version simple. Ne pas réintroduire ces éléments sans qu'il le redemande explicitement. Détail du raisonnement et des essais dans `.claude/notes/2026-09-19.md`.
+
+**Échelle desktop (21/09)** : plusieurs essais de réduction d'échelle/marges plus larges (~8 à 15%) ont été faits et abandonnés — l'utilisateur a tranché pour **garder l'échelle desktop originale** (`.wrap` 1200px, `.hero h1` 84px, `.profile-card h2/p` 27px/21px, encadré "qui suis-je" sur 4 lignes). Ne pas la réduire à nouveau sans demande explicite.
+
+Le site a maintenant une section **"Pour aller plus loin"** sur la home (liens vers `articles/definition-psychanalyse.html` et `articles/pourquoi-la-psychanalyse-revient.html`), ajoutée et stylée par la session SEO. Toute retouche de DA sur la home doit rester cohérente avec ces pages articles (typographie/couleurs déjà alignées par SEO) — vérifier les deux si on touche à l'un des deux.
 
 ## Stratégie marketing — état des lieux
 
