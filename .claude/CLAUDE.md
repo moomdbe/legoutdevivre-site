@@ -4,6 +4,14 @@ Site vitrine/prise de RDV de Mohamed Belkoura, psychanalyste (jamais "psychothé
 
 Ce fichier est la mémoire partagée entre toutes les sessions Claude Code qui travaillent sur ce repo (design, SEO, autres chantiers) — il évite de répéter le contexte à chaque nouvelle session. Garde-le à jour quand un fait change.
 
+## MISE À JOUR 28/10/2026 — état actuel (prime sur les sections « Hébergement », « Direction artistique » et « Échelle desktop » plus bas, devenues obsolètes)
+
+- **Site actuel** : refonte du 23–24/10 — palette crème `#F6F0E6` / sable `#EBDDC8` / vert forêt `#22392D` / terracotta `#A24B30`, polices Cormorant Garamond + Jost, accueil statique responsive (`index.html` + `assets/`), articles et pied de page alignés. **L'ancienne DA teal est abandonnée.** Titre : « Praticien analytique ».
+- **Photo d'accueil** : portrait avec lunettes, fond sable, peau lissée à 65 % (`assets/img/portrait-lunettes.jpg`). Variantes de réserve sur des branches `claude/photo-*` ; ancienne photo dans `assets/img/portrait.jpg`.
+- **Déploiement** : Cloudflare Workers suit `main` (gratuit) ; Netlify sert aussi `main` mais a un quota de crédits. **Ne pousser sur `main` qu'avec accord explicite de Mohamed**, en regroupant les changements. Les essais visuels vont sur une branche `claude/…` : prévisualisation Cloudflare à l'adresse `https://claude-<nom-de-branche>-legoutdevivre-site.mohamed-belkoura.workers.dev` (le `/` devient `-`).
+- **Domaine** : `legoutdevivre.co` (créé le 16/09/2026) est maintenant chez **Name.com** (transféré par Netlify le 24/10). Le DNS est encore chez Netlify ; **migration vers Cloudflare prévue plus tard** (voir `.claude/notes/2026-10-28-memoire-session-site.md`).
+- **Historique de la session « Site »** (supprimée le 28/10) : résumé dans `.claude/notes/2026-10-28-memoire-session-site.md`.
+
 ## Hébergement & déploiement
 
 - **Cloudflare Workers** (assets statiques, `wrangler.jsonc`) : suit `main` en déploiement production.
