@@ -1,0 +1,26 @@
+# Redirections définitives vers les adresses canoniques (évite les doublons pour Google)
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/definition-psychanalyse"
+  to = "/articles/definition-psychanalyse.html"
+  status = 301
+
+[[redirects]]
+  from = "/articles/pourquoi-la-psychanalyse-revient"
+  to = "/articles/pourquoi-la-psychanalyse-revient.html"
+  status = 301
+
+[[redirects]]
+  from = "/articles/association-libre-psychanalyse"
+  to = "/articles/association-libre-psychanalyse.html"
+  status = 301
+
+[[redirects]]
+  from = "/articles/divan-psychanalyse"
+  to = "/articles/divan-psychanalyse.html"
+  status = 301
