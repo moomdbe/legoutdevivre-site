@@ -47,7 +47,8 @@
 
 :root{--heroCols:minmax(0,1.4fr) minmax(0,1fr);--textOrder:0;--photoH:min(calc(100vh - 77px),820px);--heroJustify:flex-end;--photoPad:0;--photoMax:none;--photoRatio:auto;--photoRadius:0;--thumbW:200px;--stickyPos:sticky}
 @media(max-width:759px){:root{--heroCols:minmax(0,1fr);--textOrder:1;--photoH:auto;--heroJustify:flex-start;--photoPad:24px 20px 0;--photoMax:340px;--photoRatio:4/5;--photoRadius:20px;--thumbW:104px;--stickyPos:static}}
-@media(min-width:760px){.photo-bottom{grid-template-columns:minmax(0,1fr)!important}.photo-bottom>div{min-height:0!important;padding:clamp(72px,8vw,120px) 20px 0!important}.photo-bottom [data-intro]{max-width:440px!important;aspect-ratio:4/5!important;border-radius:20px!important}}
+@media(min-width:760px){.photo-bottom{grid-template-columns:minmax(0,1fr)!important}.photo-bottom>div{min-height:0!important;padding:0 20px 64px!important}.photo-bottom [data-intro]{max-width:440px!important;aspect-ratio:4/5!important;border-radius:20px!important}#qui-suis-je{padding:0 20px 48px!important}.photo-bottom+#a-propos{padding-top:64px!important}}
+@media(max-width:759px){#qui-suis-je{padding:0 20px 40px!important}.photo-bottom>div{padding:0 20px 40px!important}.photo-bottom+#a-propos{padding-top:40px!important}}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{margin:0;background:#F6F0E6;color:#2A211C;font-family:'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
@@ -92,7 +93,7 @@ input::placeholder,textarea::placeholder{color:#8A7B6E}
 
 <header style="position:sticky;top:0;z-index:50;background:rgba(246,240,230,0.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(42,33,28,0.08)">
   <div style="max-width:1400px;margin:0 auto;padding:16px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:24px">
-    <a href="#accueil" style="font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1">Le Goût de <em style="color:#A24B30">Vivre</em></a>
+    <a href="#accueil" style="font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1">Le Goût de Vivre</a>
           <nav class="dsk" style="display:flex;align-items:center;gap:28px;font-size:14.5px">
         <a href="#accueil" style="color:#A24B30">Accueil</a>
         <a href="#qui-suis-je">À propos</a>
@@ -126,7 +127,7 @@ input::placeholder,textarea::placeholder{color:#8A7B6E}
 
   <div id="menu" class="menu" style="position:fixed;inset:0;z-index:80;background:#F6F0E6;padding:16px 20px 28px;overflow:auto">
     <div style="display:flex;justify-content:space-between;align-items:center">
-      <span style="font-family:'Cormorant Garamond',serif;font-size:26px">Le Goût de <em style="color:#A24B30">Vivre</em></span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:26px">Le Goût de Vivre</span>
       <button data-close-menu aria-label="Fermer" style="width:44px;height:44px;border:0;background:transparent;font-size:28px;font-weight:300;cursor:pointer;color:#2A211C">×</button>
     </div>
     <nav style="display:flex;flex-direction:column;gap:2px;margin-top:36px;font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1.3">
