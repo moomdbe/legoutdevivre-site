@@ -70,6 +70,7 @@ input::placeholder,textarea::placeholder{color:#8A7B6E}
 #fab.show{display:flex}
 .tab{border:0;border-radius:999px;padding:11px 6px;cursor:pointer;font-weight:500;background:transparent;color:#2A211C}
 .tab[aria-selected=true]{background:#2A211C;color:#F6F0E6}
+.mode{border:0;border-radius:999px;padding:11px 6px;cursor:pointer;font-weight:500;background:transparent;color:#2A211C}.mode[aria-selected=true]{background:#2A211C;color:#F6F0E6}.mode:focus-visible{outline:2px solid #A24B30;outline-offset:2px}
 .day{border:1px solid rgba(42,33,28,.16);background:transparent;color:#2A211C;border-radius:14px;padding:8px 0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;min-height:58px;justify-content:center}
 .day[aria-pressed=true]{background:#EDBE98;border-color:#EDBE98}
 .slot{border:1px solid rgba(42,33,28,.22);background:transparent;color:#2A211C;border-radius:999px;padding:10px 0;font-size:14px;cursor:pointer;min-height:44px}
@@ -366,6 +367,10 @@ input::placeholder,textarea::placeholder{color:#8A7B6E}
 
       <div id="panel-agenda" style="display:flex;flex-direction:column;gap:22px">
         <div id="agenda-pick" style="display:flex;flex-direction:column;gap:22px">
+          <div role="group" aria-label="Lieu de la séance" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:4px;gap:4px;border-radius:999px;background:#EFE5D6;font-size:14px">
+            <button type="button" class="mode" data-mode="cabinet" aria-selected="false">Au cabinet · Paris</button>
+            <button type="button" class="mode" data-mode="tel" aria-selected="true">Par téléphone</button>
+          </div>
           <div id="days" style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px"></div>
           <div id="slots" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px"></div>
           <button id="book" type="button" disabled style="border:0;padding:16px;border-radius:999px;background:#A24B30;color:#F6F0E6;font-size:15px;font-weight:500;cursor:pointer">Choisissez un créneau</button>
@@ -656,11 +661,19 @@ input::placeholder,textarea::placeholder{color:#8A7B6E}
     book.disabled = !selSlot;
     book.textContent = selSlot ? 'Demander ce créneau · ' + days[selDay].label + ' · ' + hh(selSlot) : 'Choisissez un créneau';
   }
+  var mode = 'tel';
+  $$('.mode').forEach(function (m) {
+    m.addEventListener('click', function () {
+      mode = m.getAttribute('data-mode');
+      $$('.mode').forEach(function (o) { o.setAttribute('aria-selected', o === m ? 'true' : 'false'); });
+    });
+  });
   book.addEventListener('click', function () {
     if (!selSlot) return;
     var label = days[selDay].label, h = hh(selSlot);
-    var msg = 'Bonjour, je souhaite réserver une séance par téléphone le ' + label + ' à ' + h + '.';
-    $('#done-summary').textContent = 'Séance par téléphone, ' + label + ' à ' + h + '. Envoyez-moi la demande : je confirme le créneau par retour.';
+    var cab = mode === 'cabinet';
+    var msg = 'Bonjour, je souhaite réserver une séance ' + (cab ? 'au cabinet à Paris' : 'par téléphone') + ' le ' + label + ' à ' + h + '.';
+    $('#done-summary').textContent = (cab ? 'Séance au cabinet à Paris, ' : 'Séance par téléphone, ') + label + ' à ' + h + '. Envoyez-moi la demande : je confirme le créneau' + (cab ? ' et le lieu (Centre Sésame ou Terapya)' : '') + ' par retour.';
     $('#done-wa').href = 'https://wa.me/33637473843?text=' + encodeURIComponent(msg);
     $('#done-mail').href = 'mailto:mohamed.belkoura@gmail.com?subject=' + encodeURIComponent('Demande de séance') + '&body=' + encodeURIComponent(msg);
     $('#agenda-pick').hidden = true;
